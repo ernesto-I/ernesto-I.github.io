@@ -32,6 +32,9 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .particles-bg {
@@ -579,23 +582,208 @@ body {
   transform: perspective(1000px) rotateY(0);
 }
 
+@media (max-width: 1200px) {
+  .servers-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
   }
   
+  .hero {
+    min-height: 80vh;
+    padding: 2rem 0;
+  }
+  
+  .glitch {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    letter-spacing: 1px;
+  }
+  
+  .subtitle {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+  
   .servers-grid,
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .server-card,
+  .service-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .server-icon img {
+    width: 100px;
+    height: 100px;
   }
   
   .quote-card,
   .about-content {
     padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+  
+  .quote-text {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    line-height: 1.7;
   }
   
   .section-title {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 0.5rem;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    justify-content: center;
+  }
+  
+  .section-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .about-content {
+    font-size: 1rem;
+  }
+  
+  .service-number {
+    font-size: 2.5rem;
+  }
+  
+  .servers-section,
+  .quote-section,
+  .about-section,
+  .services-section {
+    padding: 4rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .glitch {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+  
+  .subtitle {
+    font-size: clamp(0.9rem, 5vw, 1.2rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .status-badge {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  
+  .server-card,
+  .service-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .server-icon img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .server-card h3 {
+    font-size: 1.5rem;
+  }
+  
+  .quote-card,
+  .about-content {
+    padding: 1.5rem 1rem;
+    border-radius: 15px;
+  }
+  
+  .quote-text {
+    font-size: clamp(0.95rem, 4vw, 1.1rem);
+  }
+  
+  .quote-author {
+    font-size: 1rem;
+  }
+  
+  .section-title {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+  
+  .section-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .service-number {
+    font-size: 2rem;
+  }
+  
+  .service-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .service-card p {
+    font-size: 0.95rem;
+  }
+  
+  .servers-section,
+  .quote-section,
+  .about-section,
+  .services-section {
+    padding: 3rem 0;
+  }
+  
+  .footer {
+    padding: 3rem 0 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .footer-content p {
+    font-size: 0.9rem;
+  }
+  
+  .footer-quote {
+    font-size: 0.85rem;
+  }
+  
+  .server-card:active {
+    transform: translateY(-5px) rotate(1deg);
+  }
+  
+  .service-card:active {
+    transform: translateY(-5px) scale(1.01);
+  }
+  
+  .particles-bg {
+    opacity: 0.5;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .server-card:hover {
+    transform: none;
+  }
+  
+  .server-card:active {
+    transform: translateY(-8px) rotate(1deg);
+    transition: transform 0.2s ease;
+  }
+  
+  .service-card:hover {
+    transform: none;
+  }
+  
+  .service-card:active {
+    transform: translateY(-5px) scale(1.02);
+    transition: transform 0.2s ease;
+  }
+  
+  .card-particles {
+    display: none;
   }
 }
