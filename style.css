@@ -71,11 +71,14 @@ body {
 .hero-content {
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 1rem;
 }
 
 
 .glitch {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2.5rem, 7vw, 6rem);
   font-weight: 700;
   background: var(--gradient-hero);
   background-size: 200% 200%;
@@ -84,9 +87,10 @@ body {
   background-clip: text;
   margin-bottom: 1rem;
   position: relative;
-  letter-spacing: 2px;
+  letter-spacing: clamp(-1px, 0.5vw, 2px);
   animation: gradient-shift 3s ease infinite;
   filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.6));
+  word-spacing: -0.05em;
 }
 
 @keyframes gradient-shift {
@@ -599,8 +603,11 @@ body {
   }
   
   .glitch {
-    font-size: clamp(2.5rem, 10vw, 4rem);
-    letter-spacing: 1px;
+    font-size: clamp(2rem, 9vw, 4rem);
+    letter-spacing: 0px;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: visible;
   }
   
   .subtitle {
@@ -669,7 +676,9 @@ body {
   }
   
   .glitch {
-    font-size: clamp(2rem, 12vw, 3rem);
+    font-size: clamp(1.8rem, 8vw, 3rem);
+    letter-spacing: -1px;
+    padding: 0 0.5rem;
   }
   
   .subtitle {
