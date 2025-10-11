@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
   addGlitchEffect();
   
   initCardParticles();
+  
+  initDiscordCopy();
 });
 
 function createParticles() {
@@ -241,3 +243,44 @@ document.addEventListener('mousemove', (e) => {
 document.addEventListener('mouseleave', () => {
   cursorGlow.style.opacity = '0';
 });
+
+function initDiscordCopy() {
+  const discordUsername = document.getElementById('discordUsername');
+  const copyBtn = document.getElementById('copyBtn');
+  const copyHint = document.getElementById('copyHint');
+  const usernameText = 'ernesto_1574';
+  
+  if (!discordUsername || !copyBtn || !copyHint) return;
+  
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(usernameText);
+      
+      copyHint.textContent = '¡Copiado!';
+      copyHint.classList.add('success');
+      
+      discordUsername.style.background = 'rgba(16, 185, 129, 0.25)';
+      discordUsername.style.borderColor = 'rgba(16, 185, 129, 0.5)';
+      
+      setTimeout(() => {
+        copyHint.textContent = 'Haz clic para copiar';
+        copyHint.classList.remove('success');
+        discordUsername.style.background = 'rgba(88, 101, 242, 0.15)';
+        discordUsername.style.borderColor = 'rgba(88, 101, 242, 0.3)';
+      }, 2000);
+      
+    } catch (err) {
+      console.error('Error al copiar:', err);
+      copyHint.textContent = 'Error al copiar';
+      setTimeout(() => {
+        copyHint.textContent = 'Haz clic para copiar';
+      }, 2000);
+    }
+  };
+  
+  discordUsername.addEventListener('click', copyToClipboard);
+  copyBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    copyToClipboard();
+  });
+}
