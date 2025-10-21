@@ -203,7 +203,8 @@ body {
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .server-card::before {
@@ -316,7 +317,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin-top: 2rem;
+  margin-top: auto;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -928,6 +929,25 @@ body {
   .username-text {
     font-size: 1.1rem;
   }
+  
+  .pricing-item {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .role-name {
+    font-size: 1.05rem;
+  }
+  
+  .price {
+    font-size: 1.3rem;
+  }
+  
+  .hiring-description-box {
+    padding: 2rem 1.5rem;
+  }
 }
 
 .footer {
@@ -1176,6 +1196,31 @@ body {
   
   .footer-quote {
     font-size: 0.85rem;
+  }
+  
+  .pricing-item {
+    padding: 1.25rem 1rem;
+    gap: 0.5rem;
+  }
+  
+  .role-name {
+    font-size: 1rem;
+  }
+  
+  .price {
+    font-size: 1.2rem;
+  }
+  
+  .hiring-description-box {
+    padding: 1.5rem 1rem;
+  }
+  
+  .hiring-description {
+    font-size: 1rem;
+  }
+  
+  .pricing-info h4 {
+    font-size: 1.2rem;
   }
   
   .server-card:active {
